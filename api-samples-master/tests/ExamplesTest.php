@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 /**
 *
@@ -14,8 +14,8 @@ class ExamplesTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->clientId = getenv('GOOGLE_CLIENT_ID');
-        $this->clientSecret = getenv('GOOGLE_CLIENT_SECRET');
+        $this->clientId = getenv('1080368997733-0mfkdtfum2d76onnv6jiht4rpjnufq56.apps.googleusercontent.com');
+        $this->clientSecret = getenv('8-5rnpzMl0MKwXuUZUFzUuiQ');
 
         // load access token if applicable
         if ($this->accessToken !== false) {

@@ -2,7 +2,7 @@
 <body>
   <div>
   <h1>Youtube Samples</h1>
-<?php if (!file_exists(__DIR__ . '/vendor/autoload.php')): ?>
+<?php if (!file_exists(__DIR__ . '/../vendor/autoload.php')): ?>
   <h3>Library Requirements</h3>
   <ol>
     <li>1. Install composer (https://getcomposer.org)</li>
