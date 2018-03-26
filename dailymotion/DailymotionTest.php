@@ -2,7 +2,9 @@
 
 require_once 'local_config.php';
 
+echo '<pre>';
 $url = $api->uploadFile($videoTestFile);
+
 
 $result = $api->post(
     '/videos',

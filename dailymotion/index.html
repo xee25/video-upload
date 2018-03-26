@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload video</title>
+
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+    <input id="fileDomId" type="file" value="C:\xampp\htdocs\video-upload\test.mp4">
+</form>
+<button onclick="fun_upload()">Upload</button>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="dailymotion.js"></script>
+<script>
+    DM.init({
+        apiKey: 'bac18a89002431796501',
+        status: true, // check login status
+        cookie: true // enable cookies to allow the server to access the session
+    });
+    function fun_upload() {
+        DM.api('/file/upload', function (response)
+        {
+            //upload the video and get the url
+            var xhr =  new XMLHttpRequest();
+            xhr.open('POST', response.upload_url, true);
+            var formData = new FormData();
+            formData.append('file', document.getElementById("fileDomId"));
+            xhr.send(formData);
+
+            // check when video is uploaded
+            xhr.onreadystatechange = function ()
+            {
+                if (xhr.readyState == 4)
+                {
+                    console.log(JSON.parse(xhr.response).url);
+                    // create the video object and publish the video
+                    DM.api(
+                        '/videos',
+                        'post',
+                        {
+                            url: JSON.parse(xhr.response).url,
+                            title: 'Dailymotion PHP SDK upload test',
+                            tags: 'dailymotion,api,sdk,test',
+                            channel: 'videogames',
+                            published: 'true'
+                        }
+                    );
+                }
+            }
+        });
+    };
+
+</script>
+
+</body>
+</html>

@@ -6,14 +6,14 @@
  * Time: 3:44 PM
  */
 
-require_once 'Dailymotion.php';
+require_once '../vendor/dailymotion/sdk/Dailymotion.php';
 
 // Account settings
-$apiKey        = 'yourApiKey';
-$apiSecret     = 'yourApiSecret';
-$testUser      = 'someUser';
-$testPassword  = 'yourPassword';
-$videoTestFile = '/path/to/video/test.mp4';
+$apiKey        = 'bac18a89002431796501';
+$apiSecret     = 'ec11cd6517f3cedf73b16013b44c25f858e46f28';
+$testUser      = 'xeeshan.tds@gmail.com';
+$testPassword  = 'tds12345';
+$videoTestFile = 'test.mp4';
 
 // Scopes you need to run your tests
 $scopes = array(
