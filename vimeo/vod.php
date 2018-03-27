@@ -1,7 +1,7 @@
 <?php
 
 use Vimeo\Vimeo;
-
+echo '<pre>';
 /**
  *   Copyright 2014 Vimeo
  *

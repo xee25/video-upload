@@ -2,7 +2,7 @@
 
 use Vimeo\Vimeo;
 use Vimeo\Exceptions\VimeoUploadException;
-
+echo '<pre>';
 /**
  *   Copyright 2013 Vimeo
  *
@@ -31,6 +31,7 @@ if (empty($config['access_token'])) {
 // Instantiate the library with your client id, secret and access token (pulled from dev site)
 $lib = new Vimeo($config['client_id'], $config['client_secret'], $config['access_token']);
 
+$lib->setToken($config['access_token']);
 // Create a variable with a hard coded path to your file system
 $file_name = 'C:\xampp\htdocs\video-upload\videos\test.mp4';
 

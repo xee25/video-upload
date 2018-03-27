@@ -1,5 +1,5 @@
 <?php
-
+echo '<pre>';
 use Vimeo\Vimeo;
 
 /**
