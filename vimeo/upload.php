@@ -41,6 +41,9 @@ try {
     // Upload the file and include the video title and description.
     $uri = $lib->upload($file_name, array(
         'name' => 'Vimeo API SDK test upload',
+        'privacy' => [
+            'view' => 'anybody'
+        ],
         'description' => "This video was uploaded through the Vimeo API's PHP SDK."
     ));
 
