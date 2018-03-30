@@ -1,23 +1,84 @@
 <?php
-$dbhostname="192.200.96.210\SQLEXPRESS"; // this is the database ip 192.200.96.210
-$dbport='2272';
-$dbname='PixelStudioFX';
-$dbusername='remotepsfx';
-$dbpassword='Remote6491Access!psfx';
+//require_once '../vendor/dailymotion/sdk/Dailymotion.php';
+require_once '../vendor/autoload.php';
 
 echo '<pre>';
+$fb = new Facebook\Facebook([
+    'app_id' => '776131842592020',
+    'app_secret' => '1d769c3f565eebc391c54ec56bc79247',
+    'default_graph_version' => 'v2.2',
+    'default_access_token' => '2705b39ea13ccd0acd88cb9bf88d6bef',
+//    'default_access_token' => 'EAALB40bGzRQBAJV5kZBgibR1ZCKMXi9yxtIqHVuZAW8154MHnebZCmA7p0heVohgDZCrPidI66bKfiEYVwqhwl65NzZAn6yUGxbbqCiZAkdU3TM3dcXgkZBJ0tqnD7Iia46Fe2zAVtD3XsLoZA4YePBc4JZBdVPGKLjDoR8XgY40DXAgD480L2BPLZAuzqW0MTHJFqS8TqwI6cCBuWxsAlP3ZCHUDD5n7mdseawLzhc2QFstlQZDZD',
+]);
+/*$data = [
+    'title' => 'My Foo Video',
+    'description' => 'This video is full of foo and bar action.',
+    'source' => $fb->videoToUpload('../test.mp4'),
+];*/
+$helper = $fb->getJavaScriptHelper();
+
+try {
+    $accessToken = $helper->getAccessToken();
+} catch(Facebook\Exceptions\FacebookResponseException $e) {
+    // When Graph returns an error
+    echo 'Graph returned an error: ' . $e->getMessage();
+    exit;
+} catch(Facebook\Exceptions\FacebookSDKException $e) {
+    // When validation fails or other local issues
+    echo 'Facebook SDK returned an error: ' . $e->getMessage();
+    exit;
+}
+
+if (! isset($accessToken)) {
+    echo 'No cookie set or no OAuth data could be obtained from cookie.';
+    exit;
+}
+
+// Logged in
+echo '<h3>Access Token</h3>';
+var_dump($accessToken->getValue());
+
+$_SESSION['fb_access_token'] = (string) $accessToken;
+
+// User is logged in!
+// You can redirect them to a members-only page.
+//header('Location: https://example.com/members.php');
+
+
+
+
+
+
+die;
 try {
 
-    $dbh = new PDO("dblib:host=$dbhostname;port=$dbport;dbname=$dbname", $dbusername, $dbpassword);
-    $name = $dbh->getAttribute(PDO::ATTR_DRIVER_NAME);
-    echo $name;
-}
-catch ( Exception $ex) {
-    print_r( $ex );
+//    $helper = $fb->getCanvasHelper();
+//    $helper = $fb->getRedirectLoginHelper();
+    $accessToken = $helper->getAccessToken();
+    print_r($helper->getAccessToken());
+    $client = $fb->getClient();
+    print_r($client);
+    $response = $client->uploadVideo('/me/videos', $data, '2705b39ea13ccd0acd88cb9bf88d6bef');
+//    $response = $fb->post('/me/videos', $data, '2705b39ea13ccd0acd88cb9bf88d6bef');
+} catch(Facebook\Exceptions\FacebookResponseException $e) {
+    // When Graph returns an error
+    echo 'Graph returned an error: ' . $e->getMessage();
+    exit;
+} catch(Facebook\Exceptions\FacebookSDKException $e) {
+    // When validation fails or other local issues
+    echo 'Facebook SDK returned an error: ' . $e->getMessage();
+    exit;
 }
 
-echo phpinfo ();
+$graphNode = $response->getGraphNode();
+var_dump($graphNode);
+
+echo 'Video ID: ' . $graphNode['id'];
+
 ?>
+
+
+2705b39ea13ccd0acd88cb9bf88d6bef
 <html>
 <body>
   <div>
