@@ -18,11 +18,11 @@
  * 3. Require the google/apiclient library
  *    $ composer require google/apiclient:~2.0
  */
-if (!file_exists($file = __DIR__ . '/vendor/autoload.php')) {
+if (!file_exists($file = __DIR__ . '/../vendor/autoload.php')) {
   throw new \Exception('please run "composer require google/apiclient:~2.0" in "' . __DIR__ .'"');
 }
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 session_start();
 
 // Valid section types.
@@ -55,8 +55,8 @@ $CHANNELS = '';
  * <https://developers.google.com/youtube/v3/guides/authentication>
  * Please ensure that you have enabled the YouTube Data API for your project.
  */
-$OAUTH2_CLIENT_ID = 'REPLACE_ME';
-$OAUTH2_CLIENT_SECRET = 'REPLACE_ME';
+$OAUTH2_CLIENT_ID = '1080368997733-gb56ien215rthnttqvf5jpd54ustnc2s.apps.googleusercontent.com';
+$OAUTH2_CLIENT_SECRET = 'AsbKHhquLSbbz9sZ-3Ct68Dd';
 
 $client = new Google_Client();
 $client->setClientId($OAUTH2_CLIENT_ID);

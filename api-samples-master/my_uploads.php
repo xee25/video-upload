@@ -1,5 +1,5 @@
 <?php
-
+echo '<pre>';
 /**
  * Library Requirements
  *
@@ -13,6 +13,7 @@ if (!file_exists(__DIR__ . '/../vendor/autoload.php')) {
 }
 
 require_once __DIR__ . '/../vendor/autoload.php';
+//print_r(__DIR__ . '/../vendor/autoload.php');
 session_start();
 
 /*
@@ -22,8 +23,8 @@ session_start();
  * <https://developers.google.com/youtube/v3/guides/authentication>
  * Please ensure that you have enabled the YouTube Data API for your project.
  */
-$OAUTH2_CLIENT_ID = '1080368997733-0mfkdtfum2d76onnv6jiht4rpjnufq56.apps.googleusercontent.com';
-$OAUTH2_CLIENT_SECRET = '8-5rnpzMl0MKwXuUZUFzUuiQ';
+$OAUTH2_CLIENT_ID = '1080368997733-gb56ien215rthnttqvf5jpd54ustnc2s.apps.googleusercontent.com';
+$OAUTH2_CLIENT_SECRET = 'AsbKHhquLSbbz9sZ-3Ct68Dd';
 
 $client = new Google_Client();
 $client->setClientId($OAUTH2_CLIENT_ID);
@@ -32,6 +33,8 @@ $client->setScopes('https://www.googleapis.com/auth/youtube');
 $redirect = filter_var('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'],
   FILTER_SANITIZE_URL);
 $client->setRedirectUri($redirect);
+//print_r($redirect);
+//print_r($client);
 
 // Define an object that will be used to make all API requests.
 $youtube = new Google_Service_YouTube($client);
@@ -55,11 +58,13 @@ if (isset($_SESSION[$tokenSessionKey])) {
 // Check to ensure that the access token was successfully acquired.
 if ($client->getAccessToken()) {
   try {
+      print_r($client->getAccessToken() );
     // Call the channels.list method to retrieve information about the
     // currently authenticated user's channel.
     $channelsResponse = $youtube->channels->listChannels('contentDetails', array(
       'mine' => 'true',
     ));
+
 
     $htmlBody = '';
     foreach ($channelsResponse['items'] as $channel) {

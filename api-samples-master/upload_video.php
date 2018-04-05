@@ -57,7 +57,7 @@ if ($client->getAccessToken()) {
     $htmlBody = '';
     try{
         // REPLACE this value with the path to the file you are uploading.
-        $videoPath = __DIR__ . '/../videos/2018-03-13_12-37-01.mp4';
+        $videoPath = __DIR__ . '/../videos/test.mp4';
 
         // Create a snippet with title, description, tags and category ID
         // Create an asset resource and set its snippet metadata and type.
