@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+http://pear.php.net/dtd/tasks-1.0.xsd
+http://pear.php.net/dtd/package-2.0
+http://pear.php.net/dtd/package-2.0.xsd">
+ <name>PBAPI</name>
+ <channel>pear.php.net</channel>
+ <summary>Photobucket API Client</summary>
+ <description>Photobucket API client for PHP5, with Fluent interface
+ </description>
+ <lead>
+  <name>Justin Hart</name>
+  <user>jhart</user>
+  <email>jhart@photobucket.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2008-06-05</date>
+ <time>16:42:56</time>
+ <version>
+  <release>0.2.0</release>
+  <api>0.2.0</api>
+ </version>
+ <stability>
+  <release>alpha</release>
+  <api>alpha</api>
+ </stability>
+ <license>The MIT License</license>
+ <notes>This is the trunk line of code
+ </notes>
+ <contents>
+  <dir name="/">
+   <dir name="PBAPI">
+    <dir name="data">
+     <file name="api-defs.yml" role="php" />
+     <file name="methods.dat" role="php" />
+     <file name="yml2phpserialize.php" role="php" />
+    </dir> <!-- //PBAPI/data -->
+    <dir name="Exception">
+     <file name="Response.php" role="php" />
+    </dir> <!-- //PBAPI/Exception -->
+    <dir name="Methods">
+     <file name="album.php" role="php" />
+     <file name="base.php" role="php" />
+     <file name="media.php" role="php" />
+     <file name="user.php" role="php" />
+    </dir> <!-- //PBAPI/Methods -->
+    <dir name="Request">
+     <file name="curl.php" role="php" />
+     <file name="Factory.php" role="php" />
+     <file name="fopenurl.php" role="php" />
+     <file name="fsockopen.php" role="php" />
+    </dir> <!-- //PBAPI/Request -->
+    <dir name="Response">
+     <file name="Factory.php" role="php" />
+     <file name="json.php" role="php" />
+     <file name="phpserialize.php" role="php" />
+     <file name="simplexml.php" role="php" />
+     <file name="simplexmlarray.php" role="php" />
+     <file name="xmlserializer.php" role="php" />
+    </dir> <!-- //PBAPI/Response -->
+    <file name="Exception.php" role="php" />
+    <file name="Methods.php" role="php" />
+    <file name="Request.php" role="php" />
+    <file name="Response.php" role="php" />
+   </dir> <!-- //PBAPI -->
+   <file name="PBAPI.php" role="php" />
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.1.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0b1</min>
+   </pearinstaller>
+   <package>
+    <name>OAuth</name>
+    <channel>pear.php.net</channel>
+    <min>0.1</min>
+   </package>
+  </required>
+  <optional>
+   <package>
+    <name>XML_Serializer</name>
+    <channel>pear.php.net</channel>
+    <min>0.1</min>
+   </package>
+   <extension>
+    <name>SimpleXML</name>
+   </extension>
+   <extension>
+    <name>json</name>
+   </extension>
+   <extension>
+    <name>syck</name>
+   </extension>
+   <extension>
+    <name>curl</name>
+   </extension>
+  </optional>
+ </dependencies>
+ <phprelease />
+</package>

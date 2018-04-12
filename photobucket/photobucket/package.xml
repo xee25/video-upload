@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<package version="1.0">
+
+	<name>PBAPI</name>
+	<summary>Photobucket API Client</summary>
+	<description>
+		Photobucket API client for PHP5, with Fluent interface
+	</description>
+	<license>The MIT License</license>
+	<maintainers>
+		<maintainer>
+			<user>jhart</user>
+			<name>Justin Hart</name>
+			<email>jhart@photobucket.com</email>
+			<role>lead</role>
+		</maintainer>
+	</maintainers>
+
+	<release>
+		<version>0.2.0</version>
+		<date>2008-05-19</date>
+		<state>alpha</state>
+		<notes>
+			This is the trunk line of code
+		</notes>
+		<filelist>
+			<dir name="/">
+				<file role="php" name="PBAPI.php" />
+				<dir name="PBAPI">
+					<dir name="data">
+						<file name="api-defs.yml" role="php" />
+						<file name="methods.dat" role="php" />
+						<file name="yml2phpserialize.php" role="php" />
+					</dir>
+					<dir name="Exception">
+						<file name="Response.php" role="php" />
+					</dir>
+					<dir name="Methods">
+						<file name="album.php" role="php" />
+						<file name="base.php" role="php" />
+						<file name="media.php" role="php" />
+						<file name="user.php" role="php" />
+					</dir>
+					<dir name="Request">
+						<file name="Factory.php" role="php" />
+						<file name="curl.php" role="php" />
+						<file name="fopenurl.php" role="php" />
+						<file name="fsockopen.php" role="php" />
+					</dir>
+					<dir name="Response">
+						<file name="Factory.php" role="php" />
+						<file name="json.php" role="php" />
+						<file name="phpserialize.php" role="php" />
+						<file name="simplexml.php" role="php" />
+						<file name="simplexmlarray.php" role="php" />
+						<file name="xmlserializer.php" role="php" />
+					</dir>
+					<file name="Exception.php" role="php" />
+					<file name="Methods.php" role="php" />
+					<file name="Request.php" role="php" />
+					<file name="Response.php" role="php" />
+				</dir>
+			</dir>
+		</filelist>
+	</release>
+
+    <deps>
+        <dep type="php" rel="ge" version="5.1.0" />
+        
+        <dep type="pkg" rel="ge" version="0.1" optional="no">OAuth</dep>
+        <dep type="pkg" rel="ge" version="0.1" optional="yes">XML_Serializer</dep>
+        
+        <dep type="ext" rel="has" optional="yes">SimpleXML</dep>
+        <dep type="ext" rel="has" optional="yes">json</dep>
+        <dep type="ext" rel="has" optional="yes">syck</dep>
+        <dep type="ext" rel="has" optional="yes">curl</dep>
+    </deps>
+
+</package>
