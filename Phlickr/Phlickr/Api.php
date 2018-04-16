@@ -103,7 +103,7 @@ class Phlickr_Api {
      *
      * @var string  This should be all lowercase.
      */
-    const SETTING_API_TOKEN = 'api_token';
+    const SETTING_API_TOKEN = '72157665714212077-108daa5ca4d725d2';
     /**
      * The name of the cache filename label in the settings files created by
      * saveAs() and read by createFrom().

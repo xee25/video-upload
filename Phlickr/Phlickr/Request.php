@@ -62,11 +62,11 @@ class Phlickr_Request {
     /**
      * Number of seconds to wait while connecting to the server.
      */
-    const TIMEOUT_CONNECTION = 20;
+    const TIMEOUT_CONNECTION = 200;
     /**
      * Total number of seconds to wait for a request.
      */
-    const TIMEOUT_TOTAL = 50;
+    const TIMEOUT_TOTAL = 500;
 
     /**
      * Phlickr_API object

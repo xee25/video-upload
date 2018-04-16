@@ -132,7 +132,7 @@ class Phlickr_Uploader {
      * Number of seconds to wait for an upload to complete.
      * @var integer
      */
-    const TIMEOUT = 200;
+    const TIMEOUT = 500;
 
     /**
      * Constructor
@@ -265,7 +265,7 @@ class Phlickr_Uploader {
             array(
                 'title' => $title,
                 'description' => $desc,
-                'tags' => $tags,
+//                'tags' => $tags,
                 'is_public' => (integer) $this->_forPublic,
                 'is_friend' => (integer) $this->_forFriends,
                 'is_family' => (integer) $this->_forFamily
@@ -283,6 +283,7 @@ class Phlickr_Uploader {
         $params['photo'] = '@' . $fullFilePath;
 
         // use the requst to submit
+        print_r($params);
         $result = Phlickr_Request::SubmitHttpPost(self::UPLOAD_URL, $params, self::TIMEOUT);
         // use the reponse object to parse the results
         $resp = new Phlickr_Response($result, true);
